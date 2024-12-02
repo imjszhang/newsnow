@@ -6,3 +6,10 @@ compatibility_date = "2024-10-03"
 binding = "NEWSNOW_DB"
 database_name = "newsnow"
 database_id = "7af0e502-7738-4f8a-8825-2a64fd960bde"
+
+# Github Clien ID
+G_CLIENT_ID="Ov23liAQkvXdBsDnPnPH"
+# 初始化数据库, 首次运行必须设置为 true，之后可以将其关闭
+INIT_TABLE=true
+# 是否启用缓存
+ENABLE_CACHE=true
