@@ -13,8 +13,8 @@ services:
       - JWT_SECRET=
       - INIT_TABLE=true
       - ENABLE_CACHE=true
-  networks:
-    - dokploy-network
+    networks:
+      - dokploy-network
    
 networks:
   dokploy-network:
