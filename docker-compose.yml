@@ -15,6 +15,12 @@ services:
       - ENABLE_CACHE=true
     networks:
       - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.newsnow.rule=Host(`newsnow.${DOMAIN:-docker.localhost}`)"
+      - "traefik.http.routers.newsnow.entrypoints=web"
+      - "traefik.http.services.newsnow.loadbalancer.server.port=4444"
+      - "traefik.docker.network=dokploy-network"
    
 networks:
   dokploy-network:
