@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  newsnow:
+    image: ghcr.io/ourongxing/newsnow:latest
+    container_name: newsnow
+    restart: always
+    ports:
+      - '4444:4444'
+    environment:
+      - G_CLIENT_ID=
+      - G_CLIENT_SECRET=
+      - JWT_SECRET=
+      - INIT_TABLE=true
+      - ENABLE_CACHE=true
+      - DOMAIN=localhost
+    networks:
+      - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.newsnow.rule=Host(`newsnow.${DOMAIN:-docker.localhost}`)"
+      - "traefik.http.routers.newsnow.entrypoints=web"
+      - "traefik.http.services.newsnow.loadbalancer.server.port=4444"
+      - "traefik.docker.network=dokploy-network"
+   
+networks:
+  dokploy-network:
+    external: true
