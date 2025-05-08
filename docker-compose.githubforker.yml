@@ -18,7 +18,7 @@ services:
       - dokploy-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.newsnow.rule=Host(`newsnow.${DOMAIN:-docker.localhost}`)"
+      - "traefik.http.routers.newsnow.rule=Host(`newsnow.${DOMAIN:-dokploy.localhost}`)"
       - "traefik.http.routers.newsnow.entrypoints=web"
       - "traefik.http.services.newsnow.loadbalancer.server.port=4444"
       - "traefik.docker.network=dokploy-network"
