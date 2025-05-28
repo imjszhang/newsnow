@@ -17,6 +17,18 @@ services:
       - JWT_SECRET=
       - INIT_TABLE=true
       - ENABLE_CACHE=true
+    networks:
+      - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.newsnow.rule=Host(${DOMAIN:-`newsnow.localhost}`)"
+      - "traefik.http.routers.newsnow.entrypoints=web"
+      - "traefik.http.services.newsnow.loadbalancer.server.port=4444"
+      - "traefik.docker.network=dokploy-network"
+   
+networks:
+  dokploy-network:
+    external: true
 
 volumes:
   newsnow_data:
