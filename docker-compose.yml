@@ -16,12 +16,8 @@ services:
       - G_CLIENT_SECRET=
       - JWT_SECRET=
       - INIT_TABLE=true
-<<<<<<< HEAD
-      - ENABLE_CACHE=true
-=======
       - ENABLE_CACHE=true
 
 volumes:
   newsnow_data:
     name: newsnow_data
->>>>>>> c738c4c4cf4163ebb3a4c9c55c9e51a6f3559b99
